@@ -326,6 +326,9 @@ footer{background:var(--footer-bg);color:rgba(255,255,255,.72);padding:60px 0 30
 .foot-logo{color:#fff;font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:10px;}
 .foot-signature{font-family:'Fraunces',serif;font-style:italic;color:#B9D89A;font-size:.92rem;margin-bottom:12px;}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.18);padding-top:22px;display:flex;justify-content:space-between;font-size:.78rem;flex-wrap:wrap;gap:10px;}
+.foot-legal{display:flex;flex-wrap:wrap;gap:4px 16px;}
+.foot-admin{color:inherit;opacity:.45;}
+.foot-admin:hover{opacity:.85;}
 
 @media(max-width:1100px){
   .nav-links{
