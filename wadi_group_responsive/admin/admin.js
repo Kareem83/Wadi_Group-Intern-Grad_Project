@@ -73,6 +73,12 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
         { id: 2, name: 'Mazareh sector logo', file: '../Mazareh-sector.png' },
         { id: 3, name: "Sina'at sector logo", file: '../Sinaat-sector.png' }
       ],
+      leaders: [
+        { id: 1, name: 'Mr. Musa Freiji', role: 'Founding Shareholder & Director', pill: 'Founder', group: 'Top Leaders', bio: 'A founding figure behind Wadi Group, with a BSc in Agricultural Engineering from the American University of Beirut. His poultry industry experience began in the 1950s.', photo: 'https://www.wadigroup.com/sites/default/files/Musa-Freiji.jpg' },
+        { id: 2, name: 'Mr. Tony Freiji', role: 'Executive Chairman, Shareholder', pill: 'Shareholder', group: 'Wadi Poultry Group Board of Directors', bio: 'Joined Wadi in 1984 after studying Agricultural Engineering at AUB and Poultry Nutrition at Iowa State University. He has led production, commercial operations and expansion projects.', photo: 'https://www.wadigroup.com/sites/default/files/Tony-Freiji_0.jpg' },
+        { id: 3, name: 'Mr. Ramzi P. Nasrallah', role: 'Vice-Chairman & Managing Director, Shareholder', pill: 'Shareholder', group: 'Wadi Poultry Group Board of Directors', bio: 'Responsible for corporate financial direction, audit activity and budget planning. He joined Wadi at the establishment stage.', photo: 'https://www.wadigroup.com/sites/default/files/Ramzi-Nasrallah.jpg' },
+        { id: 4, name: 'Mrs. Rima Freiji', role: 'Director, Head of Governance Committee, Shareholder', pill: 'Shareholder', group: 'Wadi Poultry Group Board of Directors', bio: 'Leads governance and institutional development initiatives. She joined Wadi in 2008 and later became Chief Development Officer.', photo: 'https://www.wadigroup.com/sites/default/files/Rima-Freiji_0.jpg' }
+      ],
       media: [
         { id: 1, featured: true, title: 'Wadi Group — Corporate Film', category: 'Videos', type: 'video', date: 'March 2025', youtubeId: '179CTHMVUcs', description: 'An inside look at Wadi Group\'s three sectors and fifty-year story.' },
         { id: 2, featured: false, title: 'Katkoot El Wadi Hatchery Tour', category: 'Videos', type: 'video', date: 'January 2025', youtubeId: '179CTHMVUcs', description: 'A walkthrough of the day-old chick hatchery operations.' },
@@ -109,7 +115,14 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
     function loadData() {
       try {
         var raw = localStorage.getItem(STORE_KEY);
-        if (raw) return JSON.parse(raw);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          /* Backfill any keys added to `defaults` after this browser last saved. */
+          Object.keys(defaults).forEach(function (k) {
+            if (!(k in parsed)) parsed[k] = defaults[k];
+          });
+          return parsed;
+        }
       } catch (e) {}
       return JSON.parse(JSON.stringify(defaults));
     }
@@ -147,6 +160,7 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
     var panelMeta = {
       overview: ['Overview', 'A snapshot of everything editable on the site.'],
       'site-media': ['Site Media', 'Hero and sector imagery shown on the homepage.'],
+      'management-team': ['Management Team', 'Leadership profiles shown on the homepage and leaders page.'],
       'media-center': ['Media Center', 'News, videos and events published to visitors.'],
       'public-relations': ['Public Relations', 'Media kit resources, awards and certificates.'],
       careers: ['Careers', 'Job listings shown on the Careers page.']
@@ -206,6 +220,7 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
        OVERVIEW
        ============================================================ */
     function renderOverview() {
+      d.getElementById('statLeaders').textContent = data.leaders.length;
       d.getElementById('statMedia').textContent = data.media.length;
       d.getElementById('statResources').textContent = data.resources.length;
       d.getElementById('statAwards').textContent = data.awards.length + data.certs.length;
@@ -284,6 +299,87 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
         });
       });
     }
+
+    /* ============================================================
+       MANAGEMENT TEAM
+       ============================================================ */
+    var leaderFilter = 'all';
+
+    function renderLeaders() {
+      var grid = d.getElementById('leaderGrid');
+      var rows = data.leaders.filter(function (l) { return leaderFilter === 'all' || l.group === leaderFilter; });
+      if (!rows.length) { grid.innerHTML = '<p class="muted">No profiles in this group.</p>'; return; }
+      grid.innerHTML = rows.map(function (l) {
+        return '' +
+          '<div class="item-card" data-id="' + l.id + '">' +
+            '<div class="ic-thumb" style="background-image:url(\'' + l.photo + '\')"></div>' +
+            '<b>' + esc(l.name) + '</b>' +
+            '<span class="ic-meta">' + esc(l.role) + '</span>' +
+            '<p>' + esc(l.bio) + '</p>' +
+            '<div class="ic-actions">' +
+              '<button class="icon-btn" data-edit="' + l.id + '">✎</button>' +
+              '<button class="icon-btn danger" data-del="' + l.id + '">🗑</button>' +
+            '</div>' +
+          '</div>';
+      }).join('');
+      grid.querySelectorAll('[data-edit]').forEach(function (b) { b.addEventListener('click', function () { openLeaderModal(Number(b.dataset.edit)); }); });
+      grid.querySelectorAll('[data-del]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var id = Number(b.dataset.del);
+          var item = data.leaders.find(function (x) { return x.id === id; });
+          if (!confirm('Remove "' + item.name + '" from the management team?')) return;
+          data.leaders = data.leaders.filter(function (x) { return x.id !== id; });
+          logActivity('Removed management profile: ' + item.name);
+          saveData(); renderLeaders(); renderOverview();
+          toast('Profile removed');
+        });
+      });
+    }
+
+    function openLeaderModal(id) {
+      var item = id ? data.leaders.find(function (x) { return x.id === id; }) : null;
+      var v = item || { name: '', role: '', pill: 'Shareholder', group: 'Top Leaders', bio: '', photo: '' };
+      var html = '' +
+        '<label class="field"><span>Full name</span><input id="lName" value="' + esc(v.name) + '" placeholder="Mr. / Mrs. Full Name"></label>' +
+        '<label class="field"><span>Role / title</span><input id="lRole" value="' + esc(v.role) + '"></label>' +
+        '<div class="field-row">' +
+          '<label class="field"><span>Pill label</span><input id="lPill" value="' + esc(v.pill) + '" placeholder="Founder, Shareholder…"></label>' +
+          '<label class="field"><span>Group</span><select id="lGroup">' +
+            ['Top Leaders', 'Wadi Poultry Group Board of Directors'].map(function (g) { return '<option ' + (v.group === g ? 'selected' : '') + '>' + g + '</option>'; }).join('') +
+          '</select></label>' +
+        '</div>' +
+        '<label class="field"><span>Bio</span><textarea id="lBio" rows="4">' + esc(v.bio) + '</textarea></label>' +
+        '<label class="field file-field"><span>Photo</span><input type="file" id="lPhoto" accept="image/*"></label>';
+
+      var uploadedPhoto = v.photo;
+      openModal(item ? 'Edit management profile' : 'New management profile', html, function () {
+        var name = fv('lName');
+        if (!name) { toast('Name is required'); return false; }
+        var payload = { name: name, role: fv('lRole'), pill: fv('lPill'), group: fv('lGroup'), bio: fv('lBio'), photo: uploadedPhoto };
+        if (item) { Object.assign(item, payload); logActivity('Updated management profile: ' + name); }
+        else { payload.id = nextId(data.leaders); data.leaders.push(payload); logActivity('Added management profile: ' + name); }
+        saveData(); renderLeaders(); renderOverview();
+        toast('Profile saved');
+      });
+
+      d.getElementById('lPhoto').addEventListener('change', function (e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () { uploadedPhoto = reader.result; };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    d.getElementById('addLeaderBtn').addEventListener('click', function () { openLeaderModal(null); });
+    d.querySelectorAll('#leaderFilterBar .chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        d.querySelectorAll('#leaderFilterBar .chip').forEach(function (c) { c.classList.remove('is-active'); });
+        chip.classList.add('is-active');
+        leaderFilter = chip.dataset.leaderfilter;
+        renderLeaders();
+      });
+    });
 
     /* ============================================================
        MEDIA CENTER
@@ -660,6 +756,7 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
     renderOverview();
     renderHero();
     renderSectorAssets();
+    renderLeaders();
     renderMediaTable();
     renderResources();
     renderAwards();
