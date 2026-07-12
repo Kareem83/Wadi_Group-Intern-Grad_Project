@@ -166,6 +166,23 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
       careers: ['Careers', 'Job listings shown on the Careers page.']
     };
 
+    /* Where each panel's content actually lives on the public site, so
+       "View on site" always opens the right page for what's being edited. */
+    var panelLiveUrl = {
+      overview: '../index.html',
+      'site-media': '../index.html#hero',
+      'management-team': '../leaders.html',
+      'media-center': '../media.html',
+      'public-relations': '../for-media.html',
+      careers: '../careers.html'
+    };
+
+    var viewSiteBtn = d.getElementById('viewSiteBtn');
+    viewSiteBtn.dataset.url = panelLiveUrl.overview;
+    viewSiteBtn.addEventListener('click', function () {
+      window.open(viewSiteBtn.dataset.url || '../index.html', '_blank', 'noopener');
+    });
+
     function goPanel(name) {
       d.querySelectorAll('.side-link[data-panel]').forEach(function (b) {
         b.classList.toggle('is-active', b.dataset.panel === name);
@@ -175,6 +192,7 @@ if (/index\.html$/.test(window.location.pathname) || /\/admin\/?$/.test(window.l
       });
       d.getElementById('panelTitle').textContent = panelMeta[name][0];
       d.getElementById('panelSub').textContent = panelMeta[name][1];
+      viewSiteBtn.dataset.url = panelLiveUrl[name] || '../index.html';
       closeSide();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

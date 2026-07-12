@@ -94,6 +94,8 @@
 .topbar-title{flex:1;min-width:0;}
 .topbar-title h1{font-size:1.3rem;margin:0;color:var(--ink);}
 .topbar-title p{font-size:.82rem;color:var(--ink-soft);margin:2px 0 0;}
+.view-site-btn{white-space:nowrap;}
+.view-site-btn .si{font-size:.85rem;}
 .user-chip{display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;color:var(--ink);}
 .user-avatar{
   width:32px;height:32px;border-radius:50%;background:var(--group-green);color:#fff;
@@ -283,6 +285,7 @@
   .admin-content{padding:20px 16px 50px;}
   .admin-topbar{padding:14px 16px;}
   .field-row{grid-template-columns:1fr;}
+  .view-site-btn .vs-label{display:none;}
 }
 @media (max-width:560px){
   .stat-grid,.quick-grid,.asset-grid,.card-grid{grid-template-columns:1fr;}
