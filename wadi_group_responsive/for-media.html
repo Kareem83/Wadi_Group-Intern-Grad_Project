@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Relations — Wadi Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="media-page">
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html#hero" class="nav-logo"><img src="assets/logo-wadigroup.png" alt="Wadi Group"></a>
+    <div class="nav-links">
+      <div class="nav-item"><a href="index.html#divisions">Our Divisions</a></div>
+      <div class="nav-item">
+        <button type="button">Corporate  <span class="caret"></span></button>
+        <div class="dropdown">
+          <a href="about.html">About Wadi Group</a>
+          <a href="leaders.html">Our Management Team</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="media.html">Media</a></div>
+      <div class="nav-item"><a href="for-media.html">Public Relations</a></div>
+      <div class="nav-item"><a href="careers.html">Careers</a></div>
+      <div class="nav-item"><a href="index.html#contact" class="nav-cta">Contact Us</a></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="media-hero">
+  <span class="media-hero-glow g1" aria-hidden="true"></span>
+  <span class="media-hero-glow g2" aria-hidden="true"></span>
+  <div class="wrap">
+    <nav class="pr-breadcrumb" aria-label="Breadcrumb" data-reveal>
+      <a href="index.html#hero">Home</a><span>/</span>Public Relations
+    </nav>
+    <span class="eyebrow" data-reveal>Public Relations</span>
+    <h1 data-reveal>Public Relations</h1>
+    <p class="media-sub" data-reveal>Access official media resources, awards, certificates, and downloadable corporate materials — all in one place.</p>
+    <div class="media-hero-ctas" data-reveal>
+      <a href="#resources" class="btn btn-primary">Media resources</a>
+      <a href="#awards" class="btn-on-dark">Awards &amp; certificates</a>
+    </div>
+    <div class="media-hero-stats">
+      <div class="media-hero-stat" data-reveal><b data-count="6">6</b><span>Media resources</span></div>
+      <div class="media-hero-stat" data-reveal><b data-count="6">6</b><span>Awards</span></div>
+      <div class="media-hero-stat" data-reveal><b data-count="23">23</b><span>Certificates</span></div>
+      <div class="media-hero-stat" data-reveal><b data-count="1984">1984</b><span>Established</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== STICKY SECTION TABS ===================== -->
+<div class="pr-tabs" role="tablist" aria-label="Public Relations sections">
+  <a class="pr-tab active" href="#resources" data-target="resources" role="tab">Media Resources</a>
+  <a class="pr-tab" href="#awards" data-target="awards" role="tab">Awards &amp; Certificates</a>
+</div>
+
+<!-- ===================== MEDIA RESOURCES ===================== -->
+<section class="media-section pr-anchor" id="resources" style="padding-top:44px;">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Media Resources</span>
+      <h2>Downloadable corporate materials</h2>
+    </div>
+    <div class="asset-grid" id="assetGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== AWARDS & CERTIFICATES ===================== -->
+<section class="media-section pr-anchor" id="awards" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Awards &amp; Certificates</span>
+      <h2>Recognition &amp; quality</h2>
+    </div>
+    <p class="pr-intro" data-reveal>A collection of recognitions, quality certifications, and official documents reflecting our commitment to excellence.</p>
+
+    <!-- Awards -->
+    <div class="pr-subhead" data-reveal><h3>Awards</h3><span class="pr-line"></span></div>
+    <div class="award-grid" id="awardGrid"></div>
+
+    <!-- Certificates -->
+    <div class="pr-subhead" data-reveal style="margin-top:46px;"><h3>Certificates</h3><span class="pr-line"></span></div>
+    <div class="media-filters" id="certFilters" role="tablist" aria-label="Filter certificates" data-reveal style="margin-bottom:18px;">
+      <button class="media-filter active" data-filter="all">All</button>
+      <button class="media-filter" data-filter="iso">ISO</button>
+      <button class="media-filter" data-filter="ohsas">OHSAS</button>
+      <button class="media-filter" data-filter="globalgap">Global GAP</button>
+      <button class="media-filter" data-filter="foodsafety">Food Safety</button>
+      <button class="media-filter" data-filter="organic">Organic</button>
+    </div>
+    <div class="cert-panel" id="certPanel" data-reveal></div>
+    <div class="cert-actions">
+      <p class="media-count"><b id="certCount">0</b> certificates</p>
+      <a class="btn btn-primary" href="https://www.wadigroup.com/sites/default/files/certificates.zip" target="_blank" rel="noopener">↓ Download all certificates (ZIP)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOWNLOAD ALL CTA ===================== -->
+<section class="media-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="pr-cta" data-reveal="zoom">
+      <div class="pr-cta-lead">
+        <div class="pr-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        </div>
+        <div>
+          <span class="eyebrow">Complete package</span>
+          <h2>Download all public relations materials</h2>
+          <p>Get the complete collection of media resources, awards, certificates, and official corporate documents.</p>
+        </div>
+      </div>
+      <button type="button" class="btn" data-download="Full PR package">Download All Materials</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MEDIA CONTACT ===================== -->
+<section class="media-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="pr-contact" data-reveal>
+      <div>
+        <h3>Media inquiries</h3>
+        <p>For interviews, asset requests, or additional information, our Public Relations team is here to help.</p>
+      </div>
+      <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col"><div class="foot-logo">WADI GROUP</div><p class="foot-signature">To Achieve. To Lead.</p><p style="font-size:.82rem;line-height:1.6;">Egypt's integrated agribusiness — from the soil to the shelf since 1984.</p></div>
+      <div class="foot-col"><h5>Dawagen</h5><a href="index.html#dawagen">Katkoot El Wadi</a><a href="index.html#dawagen">Inmaa Sudan</a><a href="index.html#dawagen">Hi-Tec</a></div>
+      <div class="foot-col"><h5>Mazareh</h5><a href="index.html#mazareh">Wadi Food</a><a href="index.html#mazareh">Rula Farms</a></div>
+      <div class="foot-col"><h5>Sina'at</h5><a href="index.html#sinaat">Tabreed</a><a href="index.html#sinaat">A'laf Al Wadi</a><a href="index.html#sinaat">Haditha</a></div>
+      <div class="foot-col"><h5>Corporate</h5><a href="about.html">About</a><a href="leaders.html">Our Team</a><a href="for-media.html#awards">Awards</a><a href="index.html#contact">Contact</a></div>
+      <div class="foot-col"><h5>More</h5><a href="media.html">Media</a><a href="for-media.html">Public Relations</a><a href="careers.html">Careers</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Wadi Group. All rights reserved.</span>
+      <span>Design prototype — content sourced from wadigroup.com</span>
+    </div>
+  </div>
+</footer>
+
+<div class="pr-toast" id="prToast" role="status" aria-live="polite"></div>
+
+<script src="assets/site.js"></script>
+<script>
+/* =====================================================================
+   PUBLIC RELATIONS — Media Resources + Awards & Certificates.
+   Swap the arrays for API data later (shapes documented below).
+   Certificate download links are REAL PDFs hosted on wadigroup.com.
+   ===================================================================== */
+(function(){
+  "use strict";
+  const d = document;
+  const CERT_BASE = 'https://www.wadigroup.com/sites/default/files/certificates/';
+  const IMG = 'https://www.wadigroup.com/sites/default/files/';
+
+  /* ---- Media resources: {id,title,description,fileType,downloadUrl,icon,size} ---- */
+  const ICONS = {
+    doc:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/>',
+    zip:'<path d="M21 8v13H3V3h10"/><path d="M13 3l8 5"/><path d="M12 7v2M12 11v2M12 15v2"/>',
+    img:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>',
+    id:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M13 9h5M13 13h5M6 16c.8-1.5 4.2-1.5 5 0"/>'
+  };
+  const RESOURCES = [
+    {id:1, title:'Company Profile', description:'An overview of Wadi Group, its three sectors, ten brands and fifty-year story.', fileType:'pdf', icon:'doc', size:'3.2 MB', downloadUrl:'#'},
+    {id:2, title:'Brand Guidelines', description:'The complete visual identity manual — logo, colour, typography and tone of voice.', fileType:'pdf', icon:'doc', size:'5.8 MB', downloadUrl:'#'},
+    {id:3, title:'Official Logo Package', description:'Primary, mono and sector logos in SVG, PNG and EPS with clear-space guides.', fileType:'zip', icon:'zip', size:'12 MB', downloadUrl:'#'},
+    {id:4, title:'Press Kit', description:'Recent releases, statements and fact sheets prepared for journalists.', fileType:'zip', icon:'zip', size:'8.4 MB', downloadUrl:'#'},
+    {id:5, title:'Corporate Images', description:'High-resolution photography of farms, facilities, products and leadership.', fileType:'jpg', icon:'img', size:'42 MB', downloadUrl:'#'},
+    {id:6, title:'Media Contact Sheet', description:'Direct contacts for the Public Relations and communications team.', fileType:'pdf', icon:'id', size:'0.4 MB', downloadUrl:'#'}
+  ];
+  const fileClass = ft => (ft==='jpg'||ft==='png'||ft==='img') ? 'img' : ft;
+  d.getElementById('assetGrid').innerHTML = RESOURCES.map((a,i)=>
+    '<article class="asset-card" style="--i:'+Math.min(i,8)+'">'+
+      '<div class="asset-top">'+
+        '<span class="asset-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+ICONS[a.icon]+'</svg></span>'+
+        '<span class="file-badge '+fileClass(a.fileType)+'">'+(a.fileType==='jpg'?'JPG':a.fileType.toUpperCase())+'</span>'+
+      '</div>'+
+      '<h3>'+a.title+'</h3><p>'+a.description+'</p>'+
+      '<span class="asset-size">'+a.fileType.toUpperCase()+' · '+a.size+'</span>'+
+      '<button type="button" class="asset-dl" data-download="'+a.title+'">↓ Download</button>'+
+    '</article>'
+  ).join('');
+
+  /* ---- Awards: {id,title,brand,year,image,category} ---- */
+  const AWARDS = [
+    {id:1, title:'NYIOOC World Olive Oil Competition', brand:'Wadi Food Olive Oil', year:'2020', image:IMG+'award-1.png'},
+    {id:2, title:'New York Golden Award', brand:'Wadi Food Olive Oil', year:'2018', image:IMG+'award-2.png'},
+    {id:3, title:'Produit Gourmet', brand:'Wadi Food Olive Oil', year:'2015', image:IMG+'award-3.png'},
+    {id:4, title:'AVPA Paris', brand:'Wadi Food Olive Oil', year:'', image:IMG+'AVPA.jpg'},
+    {id:5, title:'International Olive Oil Competition', brand:'Wadi Food Olive Oil', year:'', image:IMG+'award-1.png'},
+    {id:6, title:'Best of bioPress Olive Oil', brand:'Wadi Food Olive Oil', year:'', image:IMG+'award-2.png'}
+  ];
+  d.getElementById('awardGrid').innerHTML = AWARDS.map((a,i)=>
+    '<article class="award-card" style="--i:'+Math.min(i,8)+'">'+
+      '<div class="award-media"><span class="award-badge">Award</span>'+
+        (a.year?'<span class="award-year">'+a.year+'</span>':'')+
+        '<img src="'+a.image+'" alt="'+a.title+' — '+a.brand+'" loading="lazy"></div>'+
+      '<div class="award-body"><h4>'+a.title+'</h4><span class="award-brand">'+a.brand+'</span></div>'+
+    '</article>'
+  ).join('');
+
+  /* ---- Certificates: {id,title,company,type,filter,year,url} — real PDFs ---- */
+  const C = (title,company,type,filter,year,file)=>({title,company,type,filter,year,url:CERT_BASE+file});
+  const CERTS = [
+    C('ISO 9001','Wadi Food','ISO 9001','iso','2008','Wadi%20Food-%20ISO%209001-%202008.pdf'),
+    C('ISO 22000','Wadi Food','ISO 22000','foodsafety','2005','Wadi%20Food-%20ISO%2022000-%202005.pdf'),
+    C('OHSAS 18001','Wadi Food','OHSAS 18001','ohsas','2007','Wadi%20Food%20-%20OHSAS%2018001%20-%202007.pdf'),
+    C('BRC Global Standard for Food Safety','Wadi Food (Sadat City)','BRC','foodsafety','2016','Wadi%20Food%20%28Sadat%20City%29%20-%20Global%20Standard%20for%20Food%20Safety%20-%202016.pdf'),
+    C('BRC Global Standard for Food Safety','Wadi Food (Km 54)','BRC','foodsafety','2015','Wadi%20Food%20%28km%2054%29%20-%20Global%20Standard%20for%20Food%20Safety%20-%202015.pdf'),
+    C('EC Organic Certificate','Wadi Food','EC','organic','2016','Wadi%20Food%20EC%20Certificate%202016.pdf'),
+    C('NOP Organic Certificate','Wadi Food','NOP','organic','2016','Wadi%20Food%20NOP%20Certificate%202016.pdf'),
+    C('EC Organic Certificate','Rula Farms','EC','organic','2016','Rula%20EC%20Certificate%202016.pdf'),
+    C('NOP Organic Certificate','Rula Farms','NOP','organic','2016','Rula%20NOP%20Certificate%202016.pdf'),
+    C('Global GAP Certificate','Rula Farms','Global GAP','globalgap','2016–2017','Global%20Gap%20certificate%202016-2017.pdf'),
+    C('ISO 9001','Wadi Feed (A\'laf)','ISO 9001','iso','2008','Wadi%20Feed%20-%20ISO%209001%20-%202008.pdf'),
+    C('OHSAS 18001','Wadi Feed (A\'laf)','OHSAS 18001','ohsas','2008','Wadi%20Feed%20OHSAS%2018001%20-%202008.pdf'),
+    C('ISO 9001','Tabreed (Haditha)','ISO 9001','iso','2008','Haditha%20For%20Exports%20and%20Industries%20Co-Tabreed-%20ISO%209001-2008.pdf'),
+    C('OHSAS 18001','Tabreed (Haditha)','OHSAS 18001','ohsas','2007','Haditha%20for%20Importing%2C%20Exporting%20and%20Industry%20-Tabreed%20OHSAS%2018001-2007.pdf'),
+    C('ISO 9001','Haditha Soya','ISO 9001','iso','','Haditha%20for%20Imports%2C%20Exports%20-Soya%20ISO%209001.pdf'),
+    C('OHSAS 18001','Haditha Soya','OHSAS 18001','ohsas','2007','Haditha%20for%20Imports%2C%20Exports%20%20Soya%20OHSAS%2018001-2007.pdf'),
+    C('ISO 9001','Wadi Poultry','ISO 9001','iso','2008','Wadi%20Poultry%20-%20ISO%209001-2008.pdf'),
+    C('ISO 9001','Wadi Poultry Grandparents','ISO 9001','iso','2016–2018','Wadi%20Poultry%20Grandparents%20ISO%209001%202016-2018.pdf'),
+    C('ISO 9001','Wadi Poultry Parents','ISO 9001','iso','2008','Wadi%20Poultry%20Parents%20-%20ISO%209001%20-%202008.pdf'),
+    C('OHSAS 18001','Wadi Poultry Parents','OHSAS 18001','ohsas','2007','Wadi%20Poultry%20Parents%20-%20OHSAS%2018001%20-%202007.pdf'),
+    C('ISO 9001','Wadi Hatcheries & Poultry','ISO 9001','iso','2008','Wadi%20Hatcheries%20and%20Poultry-ISO%209001-2008.pdf'),
+    C('OHSAS 18001','Wadi Hatcheries & Poultry','OHSAS 18001','ohsas','2007','Wadi%20Hatcheries%20and%20Poultry%20-%20OHSAS%2018001-2007.pdf'),
+    C('ISO 9001','Wadi for Fish Production','ISO 9001','iso','2008','Wadi%20For%20Fish%20Production%20ISO%209001%20-%202008.pdf')
+  ];
+  const DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>';
+  const CERT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><circle cx="10" cy="14" r="2.2"/><path d="M8.5 16.5L7 21l3-1.4L13 21l-1.5-4.5"/></svg>';
+  d.getElementById('certPanel').innerHTML = CERTS.map(c=>
+    '<div class="cert-row" data-filter="'+c.filter+'">'+
+      '<span class="cert-ico">'+CERT_ICON+'</span>'+
+      '<div class="cert-main"><h4>'+c.company+'</h4><span>'+c.title+(c.year?' · '+c.year:'')+'</span></div>'+
+      '<span class="cert-type '+c.filter+'">'+c.type+'</span>'+
+      '<a class="cert-dl" href="'+c.url+'" target="_blank" rel="noopener" title="Download '+c.company+' '+c.type+'" aria-label="Download '+c.company+' '+c.type+'">'+DL_ICON+'</a>'+
+    '</div>'
+  ).join('');
+  const certRows = Array.from(d.querySelectorAll('#certPanel .cert-row'));
+  d.getElementById('certCount').textContent = certRows.length;
+
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- Reveal for asset + award cards ---- */
+  const revealEls = Array.from(d.querySelectorAll('.asset-card, .award-card'));
+  if(reduce || !('IntersectionObserver' in window)){ revealEls.forEach(el=>el.classList.add('in')); }
+  else { const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'}); revealEls.forEach(el=>io.observe(el)); }
+
+  /* ---- Certificate filters ---- */
+  const certFilters = Array.from(d.querySelectorAll('#certFilters .media-filter'));
+  certFilters.forEach(btn=>btn.addEventListener('click', ()=>{
+    certFilters.forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    const f = btn.dataset.filter; let shown=0;
+    certRows.forEach(r=>{ const m=(f==='all')||(r.dataset.filter===f); r.classList.toggle('cert-hide', !m); if(m) shown++; });
+    d.getElementById('certCount').textContent = shown;
+  }));
+
+  /* ---- Sticky tabs: scroll-spy active state ---- */
+  const tabs = Array.from(d.querySelectorAll('.pr-tab'));
+  const setActive = id => tabs.forEach(t=>t.classList.toggle('active', t.dataset.target===id));
+  if('IntersectionObserver' in window){
+    const spy=new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id); });},
+      {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    ['resources','awards'].forEach(id=>{ const s=d.getElementById(id); if(s) spy.observe(s); });
+  }
+  tabs.forEach(t=>t.addEventListener('click', ()=>setActive(t.dataset.target)));
+
+  /* ---- Placeholder download toast (media-resource + full-package buttons) ---- */
+  const toast=d.getElementById('prToast'); let toastT;
+  d.addEventListener('click', e=>{
+    const b=e.target.closest('[data-download]'); if(!b) return;
+    toast.textContent='📦 '+b.dataset.download+' — coming soon. Connect the real file here.';
+    toast.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>toast.classList.remove('show'),3200);
+  });
+
+  /* ---- Hero parallax ---- */
+  if(!reduce){
+    const g1=d.querySelector('.media-hero-glow.g1'), g2=d.querySelector('.media-hero-glow.g2'); let t=false;
+    window.addEventListener('scroll', ()=>{ if(t)return; t=true; requestAnimationFrame(()=>{ t=false; const y=window.scrollY; if(y>700)return; if(g1)g1.style.transform='translateY('+(y*0.18)+'px)'; if(g2)g2.style.transform='translateY('+(y*-0.12)+'px)'; }); }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>

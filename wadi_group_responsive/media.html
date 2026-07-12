@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Center — Wadi Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="media-page">
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html#hero" class="nav-logo"><img src="assets/logo-wadigroup.png" alt="Wadi Group"></a>
+    <div class="nav-links">
+      <div class="nav-item"><a href="index.html#divisions">Our Divisions</a></div>
+      <div class="nav-item">
+        <button type="button">Corporate  <span class="caret"></span></button>
+        <div class="dropdown">
+          <a href="about.html">About Wadi Group</a>
+          <a href="leaders.html">Our Management Team</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="media.html">Media</a></div>
+      <div class="nav-item"><a href="for-media.html">Public Relations</a></div>
+      <div class="nav-item"><a href="careers.html">Careers</a></div>
+      <div class="nav-item"><a href="index.html#contact" class="nav-cta">Contact Us</a></div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="media-hero">
+  <span class="media-hero-glow g1" aria-hidden="true"></span>
+  <span class="media-hero-glow g2" aria-hidden="true"></span>
+  <div class="wrap">
+    <span class="eyebrow" data-reveal>Media Center</span>
+    <h1 data-reveal>Company news, film<br>&amp; events — in one place.</h1>
+    <p class="media-sub" data-reveal>Discover the latest updates from across Wadi Group. Watch our videos here or on YouTube, read the news, and follow our events.</p>
+    <div class="media-hero-ctas" data-reveal>
+      <button type="button" class="btn btn-primary" id="heroWatch">▶ Watch showreel</button>
+      <a href="#library" class="btn-on-dark">Browse updates</a>
+    </div>
+    <div class="media-hero-stats">
+      <div class="media-hero-stat" data-reveal><b data-count="40+">40+</b><span>Years of stories</span></div>
+      <div class="media-hero-stat" data-reveal><b data-count="14">14</b><span>Latest updates</span></div>
+      <div class="media-hero-stat" data-reveal><b data-count="3">3</b><span>Content channels</span></div>
+      <div class="media-hero-stat" data-reveal><b data-count="3">3</b><span>Sectors covered</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== FEATURED ===================== -->
+<section class="media-section" style="padding-bottom:20px;">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Featured</span>
+      <h2>In the spotlight</h2>
+    </div>
+    <article class="media-featured-card" id="featuredCard" data-reveal="zoom" tabindex="0" role="button" aria-label="Open featured item"></article>
+  </div>
+</section>
+
+<!-- ===================== LIBRARY (filters + grid) ===================== -->
+<section class="media-section" id="library">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Updates</span>
+      <h2>News, videos &amp; events</h2>
+    </div>
+    <div class="media-toolbar" data-reveal>
+      <div class="media-filters" role="tablist" aria-label="Filter updates by type">
+        <button class="media-filter active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="media-filter" data-filter="news" role="tab" aria-selected="false">News</button>
+        <button class="media-filter" data-filter="videos" role="tab" aria-selected="false">Videos</button>
+        <button class="media-filter" data-filter="events" role="tab" aria-selected="false">Events</button>
+      </div>
+      <p class="media-count"><b id="mediaCount">0</b> items</p>
+    </div>
+    <div class="media-grid" id="mediaGrid" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO MODAL ===================== -->
+<div class="media-modal" id="mediaModal" role="dialog" aria-modal="true" aria-label="Video player" aria-hidden="true">
+  <button class="media-modal-close" id="mediaModalClose" aria-label="Close" type="button">✕</button>
+  <div class="media-modal-inner"><div id="mediaModalVideo" style="width:100%;height:100%;"></div></div>
+  <a class="media-modal-yt" id="mediaModalYt" href="#" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+</div>
+
+<!-- ===================== DETAIL MODAL (news / events) ===================== -->
+<div class="pr-modal" id="detailModal" role="dialog" aria-modal="true" aria-label="Story details" aria-hidden="true">
+  <div class="pr-modal-inner">
+    <button class="pr-modal-close" id="detailClose" aria-label="Close" type="button">✕</button>
+    <div class="pr-modal-img"><span class="media-badge" id="detailBadge"></span><img id="detailImg" src="" alt=""></div>
+    <div class="pr-modal-body">
+      <div class="media-meta"><span id="detailDate"></span><span class="dot"></span><span id="detailCat"></span></div>
+      <h3 id="detailTitle"></h3>
+      <p id="detailText"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col"><div class="foot-logo">WADI GROUP</div><p class="foot-signature">To Achieve. To Lead.</p><p style="font-size:.82rem;line-height:1.6;">Egypt's integrated agribusiness — from the soil to the shelf since 1984.</p></div>
+      <div class="foot-col"><h5>Dawagen</h5><a href="index.html#dawagen">Katkoot El Wadi</a><a href="index.html#dawagen">Inmaa Sudan</a><a href="index.html#dawagen">Hi-Tec</a></div>
+      <div class="foot-col"><h5>Mazareh</h5><a href="index.html#mazareh">Wadi Food</a><a href="index.html#mazareh">Rula Farms</a></div>
+      <div class="foot-col"><h5>Sina'at</h5><a href="index.html#sinaat">Tabreed</a><a href="index.html#sinaat">A'laf Al Wadi</a><a href="index.html#sinaat">Haditha</a></div>
+      <div class="foot-col"><h5>Corporate</h5><a href="about.html">About</a><a href="leaders.html">Our Team</a><a href="for-media.html#awards">Awards</a><a href="index.html#contact">Contact</a></div>
+      <div class="foot-col"><h5>More</h5><a href="media.html">Media</a><a href="for-media.html">Public Relations</a><a href="careers.html">Careers</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Wadi Group. All rights reserved.</span>
+      <span>Design prototype — content sourced from wadigroup.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+/* =====================================================================
+   MEDIA CENTER — company News, Videos & Events.
+   Swap MEDIA_ITEMS for API data later (same fields). Videos open in a
+   modal (with a YouTube link); news/events open a text detail modal.
+   ===================================================================== */
+(function(){
+  "use strict";
+  const IMG = 'https://www.wadigroup.com/sites/default/files/';
+  const MEDIA_ITEMS = [
+    /* ---- Videos ---- */
+    {id:1, featured:true, title:'Wadi Group — Corporate Film', category:'Videos', type:'video',
+     date:'March 2025', youtubeId:'179CTHMVUcs',
+     description:"A cinematic journey through five decades of Egyptian agribusiness — from breeding and feed to farms, food and logistics."},
+    {id:2, title:'Katkoot El Wadi — Product Story', category:'Videos', type:'video', date:'2023', youtubeId:'69IrYOiKiC8',
+     description:"How Wadi's poultry brand grew to supply a third of local demand."},
+    {id:3, title:"A'laf Al Wadi — Feed Mill Film", category:'Videos', type:'video', date:'2023', youtubeId:'9ecRuf7kinU',
+     description:"Inside the feed mills producing 15% of Egypt's animal feed."},
+    {id:4, title:'Proudly Grown in Egypt — Brand Film', category:'Videos', type:'video', date:'2024', youtubeId:'48fqEHApvNo',
+     description:"The story behind Wadi Food's award-winning olive oil and pantry staples."},
+    {id:5, title:'Leadership Vision — Executive Interview', category:'Videos', type:'video', date:'2024', youtubeId:'CYBEFHDhB18',
+     description:"Wadi's leadership on growth, innovation and customer centricity."},
+
+    /* ---- News (mix of articles + a video) ---- */
+    {id:6, title:"Wadi Group welcomes Mitsui's investment", category:'News', type:'article', date:'2024',
+     image:IMG+'Wadi-Food_0.jpg',
+     description:'A landmark strategic investment from Mitsui & Co. strengthens Wadi Poultry Group.',
+     body:"Wadi Group welcomes Mitsui & Co. as a strategic partner in Wadi Poultry Group. The investment reinforces the group's capital base, brings world-class food-business expertise to the board, and supports an ambitious expansion agenda spanning breeding, feed, farming and logistics — while keeping customer centricity at the core."},
+    {id:7, title:"World's Longest Rotating Grill — Guinness World Record", category:'News', type:'video',
+     date:'14 Dec 2024', youtubeId:'0hDMt8iCqd0',
+     description:'Wadi Food enters the Guinness World Records in Cairo with the longest rotating grill.'},
+    {id:8, title:'Wadi Food Factory Revamp', category:'News', type:'article', date:'2023', image:IMG+'Inner_WF_02.jpg',
+     description:"A major upgrade to Wadi Food's production facilities raises capacity and quality.",
+     body:"Wadi Food completed a comprehensive revamp of its production facilities, modernising lines for olive oil, pickles and pantry staples, expanding capacity and reinforcing its 'Proudly Grown in Egypt' quality promise."},
+    {id:9, title:'Wadi Group Publishes 2024 Sustainability Report', category:'News', type:'article', date:'2025', image:IMG+'Inner_Rula_0.jpg',
+     description:'Progress on sustainable farming, resource efficiency and community impact.',
+     body:"Wadi Group released its 2024 sustainability report, detailing progress on organic farming technique, water and energy efficiency, and community impact across Dawagen, Mazareh and Sina'at."},
+
+    /* ---- Events (mix of videos + articles) ---- */
+    {id:10, title:'Wadi Group Roadshow Highlights', category:'Events', type:'video', date:'2024', youtubeId:'BaJ3S0QKSt0',
+     description:"Highlights from the group's partner and customer roadshow."},
+    {id:11, title:'Environmental Day Highlights', category:'Events', type:'video', date:'2024', youtubeId:'5lKdmFD7esY',
+     description:'Sustainability in action across Rula Farms and the wider group.'},
+    {id:12, title:'Wadi Food Harvest Festival', category:'Events', type:'article', date:'2023', image:IMG+'Wadi-Food_0.jpg',
+     description:'A celebration of the olive harvest bringing partners and community together.',
+     body:"The Wadi Food Harvest Festival celebrated another season of the olive harvest at Rula Farms, welcoming partners, customers and the local community to experience farm-to-shelf quality first-hand."},
+    {id:13, title:'Agrena Trade Show', category:'Events', type:'article', date:'2023', image:IMG+'Inner_HiTec.jpg',
+     description:"Wadi Group exhibits its poultry and feed solutions at Egypt's leading agribusiness show.",
+     body:"At Agrena, Wadi Group presented its integrated poultry, feed and veterinary solutions — from Katkoot El Wadi day-old chicks to A'laf Al Wadi feed and Hi-Tec diagnostics — to thousands of industry visitors."},
+    {id:14, title:'Gulfood Exhibition', category:'Events', type:'article', date:'2024', image:IMG+'3.jpeg',
+     description:'Wadi Food brings its award-winning range to the region\'s largest food exhibition in Dubai.',
+     body:"Wadi Food joined Gulfood in Dubai, one of the world's largest food exhibitions, connecting with distributors and retailers across the Middle East and showcasing its extra virgin olive oil and pantry range."}
+  ];
+
+  const catClass = c => 'cat-' + c.toLowerCase();
+  const ytThumb = id => 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
+  const thumbFor = m => m.thumbnail || (m.youtubeId ? ytThumb(m.youtubeId) : m.image);
+  const d = document;
+  const grid = d.getElementById('mediaGrid');
+  const featuredEl = d.getElementById('featuredCard');
+  const countEl = d.getElementById('mediaCount');
+  const byId = id => MEDIA_ITEMS.find(m => m.id == id);
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- Featured ---- */
+  const featured = MEDIA_ITEMS.find(m => m.featured) || MEDIA_ITEMS[0];
+  featuredEl.classList.add(catClass(featured.category));
+  featuredEl.dataset.id = featured.id;
+  featuredEl.innerHTML =
+    '<div class="media-thumb"><span class="media-badge">' + featured.category + '</span>' +
+      '<img src="' + thumbFor(featured) + '" alt="' + featured.title + '" loading="lazy">' +
+      (featured.type === 'video' ? '<span class="media-play" aria-hidden="true"></span>' : '') + '</div>' +
+    '<div class="media-featured-body"><span class="media-tag">Featured · ' + featured.category + '</span>' +
+      '<h3>' + featured.title + '</h3><p>' + featured.description + '</p>' +
+      '<div class="media-meta"><span>' + featured.date + '</span><span class="dot"></span><span>' +
+        (featured.type === 'video' ? 'Video' : 'Story') + '</span></div>' +
+      '<button type="button" class="btn btn-primary">' + (featured.type === 'video' ? '▶ Watch now' : 'Read more') + '</button></div>';
+
+  /* ---- Grid ---- */
+  const items = MEDIA_ITEMS.filter(m => !m.featured);
+  grid.innerHTML = items.map(m =>
+    '<article class="media-card ' + catClass(m.category) + '" data-id="' + m.id + '" data-category="' + m.category.toLowerCase() +
+        '" tabindex="0" role="button" aria-label="Open: ' + m.title + '">' +
+      '<div class="media-thumb"><span class="media-badge">' + m.category + '</span>' +
+        '<img src="' + thumbFor(m) + '" alt="' + m.title + '" loading="lazy">' +
+        (m.type === 'video' ? '<span class="media-play" aria-hidden="true"></span>' : '') + '</div>' +
+      '<div class="media-card-body"><h3>' + m.title + '</h3><p>' + m.description + '</p>' +
+        '<div class="media-card-foot"><span class="media-date">' + m.date + '</span>' +
+          '<span class="media-action">' + (m.type === 'video' ? 'Watch video' : 'Read more') +
+            ' <span aria-hidden="true">→</span></span></div>' +
+      '</div></article>'
+  ).join('');
+  const cards = Array.from(grid.querySelectorAll('.media-card'));
+  cards.forEach((c, i) => c.style.setProperty('--i', Math.min(i, 8)));
+  countEl.textContent = items.length;
+
+  /* ---- Reveal ---- */
+  if (reduce || !('IntersectionObserver' in window)) { cards.forEach(c => c.classList.add('in')); }
+  else { const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'}); cards.forEach(c=>io.observe(c)); }
+
+  /* ---- Video modal ---- */
+  const vModal = d.getElementById('mediaModal');
+  const vVideo = d.getElementById('mediaModalVideo');
+  const vYt = d.getElementById('mediaModalYt');
+  /* ---- Detail (news/events) modal ---- */
+  const dModal = d.getElementById('detailModal');
+  let lastFocus = null;
+
+  function openVideo(id, trigger){
+    if (!id) return; lastFocus = trigger || null;
+    vVideo.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Wadi Group video" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+    vYt.href = 'https://www.youtube.com/watch?v=' + id;
+    vModal.classList.add('open'); vModal.setAttribute('aria-hidden','false'); d.body.style.overflow='hidden';
+    d.getElementById('mediaModalClose').focus();
+  }
+  function closeVideo(){
+    vModal.classList.remove('open'); vModal.setAttribute('aria-hidden','true'); d.body.style.overflow='';
+    setTimeout(()=>{ vVideo.innerHTML=''; }, 320);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function openDetail(m, trigger){
+    lastFocus = trigger || null;
+    d.getElementById('detailImg').src = thumbFor(m); d.getElementById('detailImg').alt = m.title;
+    d.getElementById('detailBadge').textContent = m.category;
+    d.querySelector('#detailModal .pr-modal-img').className = 'pr-modal-img ' + catClass(m.category);
+    d.getElementById('detailDate').textContent = m.date;
+    d.getElementById('detailCat').textContent = m.category;
+    d.getElementById('detailTitle').textContent = m.title;
+    d.getElementById('detailText').textContent = m.body || m.description;
+    dModal.classList.add('open'); dModal.setAttribute('aria-hidden','false'); d.body.style.overflow='hidden';
+    d.getElementById('detailClose').focus();
+  }
+  function closeDetail(){
+    dModal.classList.remove('open'); dModal.setAttribute('aria-hidden','true'); d.body.style.overflow='';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  d.getElementById('mediaModalClose').addEventListener('click', closeVideo);
+  vModal.addEventListener('click', e=>{ if(e.target===vModal) closeVideo(); });
+  d.getElementById('detailClose').addEventListener('click', closeDetail);
+  dModal.addEventListener('click', e=>{ if(e.target===dModal) closeDetail(); });
+  d.addEventListener('keydown', e=>{ if(e.key==='Escape'){ if(vModal.classList.contains('open')) closeVideo(); if(dModal.classList.contains('open')) closeDetail(); } });
+
+  /* route by type: video -> player, article -> detail */
+  function activate(el){
+    const m = byId(el.dataset.id); if (!m) return;
+    if (m.type === 'video') openVideo(m.youtubeId, el);
+    else openDetail(m, el);
+  }
+  featuredEl.addEventListener('click', ()=>activate(featuredEl));
+  featuredEl.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(featuredEl);} });
+  d.getElementById('heroWatch').addEventListener('click', ()=>openVideo(featured.youtubeId, d.getElementById('heroWatch')));
+  grid.addEventListener('click', e=>{ const c=e.target.closest('.media-card'); if(c) activate(c); });
+  grid.addEventListener('keydown', e=>{ if(e.key!=='Enter'&&e.key!==' ')return; const c=e.target.closest('.media-card'); if(c){e.preventDefault();activate(c);} });
+
+  /* ---- Filters ---- */
+  const filters = Array.from(d.querySelectorAll('.media-filter'));
+  filters.forEach(btn => btn.addEventListener('click', ()=>{
+    filters.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+    const f = btn.dataset.filter; let shown = 0;
+    cards.forEach(card=>{
+      const match = (f==='all') || (card.dataset.category===f);
+      if (match){ card.style.display=''; card.classList.remove('media-hide'); shown++; }
+      else { card.classList.add('media-hide'); setTimeout(()=>{ if(card.classList.contains('media-hide')) card.style.display='none'; },300); }
+    });
+    countEl.textContent = shown;
+  }));
+
+  /* ---- Hero parallax ---- */
+  if (!reduce){
+    const g1=d.querySelector('.media-hero-glow.g1'), g2=d.querySelector('.media-hero-glow.g2'); let t=false;
+    window.addEventListener('scroll', ()=>{ if(t)return; t=true; requestAnimationFrame(()=>{ t=false; const y=window.scrollY; if(y>700)return; if(g1)g1.style.transform='translateY('+(y*0.18)+'px)'; if(g2)g2.style.transform='translateY('+(y*-0.12)+'px)'; }); }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
