@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wadi Group — Egypt's leading agribusiness company specializing in poultry, feed, and food production with a focus on sustainability and quality.">
+  <title>Wadi Group | To Achieve. To Lead.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=51">
+  <script>
+    /* Hide load screen early when returning via links / back — not on first open or refresh */
+    (function () {
+      try {
+        var nav = performance.getEntriesByType('navigation')[0];
+        var type = nav && nav.type;
+        var key = 'wadiHomeLoaderSeen';
+        var skip = false;
+        if (type === 'reload') {
+          skip = false;
+        } else if (type === 'back_forward') {
+          skip = true;
+        } else if (sessionStorage.getItem(key)) {
+          skip = true;
+        } else if (document.referrer) {
+          try {
+            if (new URL(document.referrer).origin === location.origin) skip = true;
+          } catch (e) {}
+        }
+        if (skip) document.documentElement.classList.add('skip-preloader');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- Custom cursor (desktop) -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-curtain preloader-curtain--left"></div>
+    <div class="preloader-curtain preloader-curtain--right"></div>
+    <div class="preloader-inner">
+      <img src="assets/logo.svg" alt="Wadi Group" class="preloader-logo">
+      <div class="preloader-bar"><span></span></div>
+      <span class="preloader-percent">0%</span>
+      <p class="preloader-text">To Achieve. To Lead.</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="assets/logo.svg" alt="Wadi Group">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#sectors" class="nav-link">Our Divisions</a></li>
+        <li class="nav-item has-dropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Corporate <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="about.html">About Wadi Group</a></li>
+            <li><a href="leaders.html">Our Management Team</a></li>
+          </ul>
+        </li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li><a href="for-media.html" class="nav-link">Public Relations</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-slides">
+      <div class="hero-slide hero-slide--image active" data-label="Katkoot El Wadi" style="background-image:url('assets/images/katkoot-toshka.jpg')"></div>
+      <div class="hero-slide hero-slide--image" data-label="Wadi Food" style="background-image:url('assets/images/wadi-food.jpg')"></div>
+      <div class="hero-slide hero-slide--image" data-label="Tabreed" style="background-image:url('assets/images/tabreed.jpg')"></div>
+      <div class="hero-slide hero-slide--image" data-label="A'laf Al Wadi" style="background-image:url('assets/images/alaf.jpg')"></div>
+      <div class="hero-slide hero-slide--image" data-label="Haditha" style="background-image:url('assets/images/haditha.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-tint" aria-hidden="true"></div>
+    <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-est" id="heroEst">Est. 1984</p>
+        <h1 class="hero-title">
+          <span class="hero-line" data-split>Transforming Desert</span>
+          <span class="hero-line" data-split>Into <em class="highlight-word">Prosperity</em></span>
+        </h1>
+        <p class="hero-tagline" id="heroTagline">To Achieve. <strong>To Lead.</strong></p>
+      </div>
+    </div>
+
+    <div class="hero-controls">
+      <div class="hero-dots" id="heroDots"></div>
+      <span class="hero-slide-label" id="heroSlideLabel">Poultry</span>
+    </div>
+
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave-path" d="M0,80 C200,120 400,40 600,70 C800,100 1000,30 1200,60 C1350,80 1400,90 1440,85 L1440,120 L0,120 Z" fill="#668E3D"/>
+        <path class="wave-path wave-path-2" d="M0,90 C250,60 450,110 700,80 C950,50 1150,100 1440,75 L1440,120 L0,120 Z" fill="#668E3D" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <a href="#sectors" class="scroll-indicator" aria-label="Scroll down">
+      <span class="scroll-label">Scroll</span>
+      <span class="scroll-mouse" aria-hidden="true">
+        <span class="scroll-wheel"></span>
+      </span>
+    </a>
+  </section>
+
+  <!-- Sectors -->
+  <section class="sectors" id="sectors">
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <div class="container sectors-intro anim-reveal">
+      <span class="section-label">Our Divisions</span>
+      <h2 class="section-title">Three sectors.<br>One integrated value chain.</h2>
+      <div class="title-underline centered"></div>
+      <p class="section-text">Every business unit feeds the next — from breeding and feed, through farming and food, to cooling, storage and transport.</p>
+    </div>
+
+    <div class="sectors-panels" id="sectorsPanels">
+      <a class="sector-panel" href="sector.html?s=dawagen" data-sector="dawagen" data-color="#E8B41E">
+        <div class="sector-panel-img" style="background-image:url('assets/images/katkoot-toshka.jpg')"></div>
+        <div class="sector-panel-tint"></div>
+        <div class="sector-panel-content">
+          <div class="sector-panel-top">
+            <span class="sector-panel-num">01</span>
+            <span class="sector-panel-bar" style="background:#E8B41E"></span>
+          </div>
+          <div class="sector-panel-bottom">
+            <div class="sector-panel-chip"><img src="assets/images/Dawagen-sector.png" alt="Dawagen"></div>
+            <h3>Dawagen</h3>
+            <p class="sector-panel-desc">Poultry — breeding, hatching &amp; day-old chicks. The genetic backbone of Egypt's protein supply.</p>
+            <span class="sector-panel-cta" style="color:#E8B41E">Explore Dawagen <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="sector-panel" href="sector.html?s=mazareh" data-sector="mazareh" data-color="#8CC83C">
+        <div class="sector-panel-img" style="background-image:url('assets/images/wadi-food.jpg')"></div>
+        <div class="sector-panel-tint"></div>
+        <div class="sector-panel-content">
+          <div class="sector-panel-top">
+            <span class="sector-panel-num">02</span>
+            <span class="sector-panel-bar" style="background:#8CC83C"></span>
+          </div>
+          <div class="sector-panel-bottom">
+            <div class="sector-panel-chip"><img src="assets/images/Mazareh-sector.png" alt="Mazareh"></div>
+            <h3>Mazareh</h3>
+            <p class="sector-panel-desc">Agriculture &amp; food — desert farms, olive oil and pickles grown and processed on our own land.</p>
+            <span class="sector-panel-cta" style="color:#8CC83C">Explore Mazareh <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="sector-panel" href="sector.html?s=sinat" data-sector="sinat" data-color="#8a4a24">
+        <div class="sector-panel-img" style="background-image:url('assets/images/tabreed.jpg')"></div>
+        <div class="sector-panel-tint"></div>
+        <div class="sector-panel-content">
+          <div class="sector-panel-top">
+            <span class="sector-panel-num">03</span>
+            <span class="sector-panel-bar" style="background:#8a4a24"></span>
+          </div>
+          <div class="sector-panel-bottom">
+            <div class="sector-panel-chip"><img src="assets/images/Sinaat-sector.png" alt="Sina'at"></div>
+            <h3>Sina'at</h3>
+            <p class="sector-panel-desc">Industrial &amp; logistics — feed milling, evaporative cooling, cold storage and transport across the chain.</p>
+            <span class="sector-panel-cta" style="color:#c67a4a">Explore Sina'at <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Board of Directors (horizontal carousel) -->
+  <section class="team mgmt" id="team" aria-label="Board of Directors">
+    <div class="mgmt-sticky">
+      <div class="mgmt-head">
+        <span class="section-label">Leadership</span>
+        <h2 class="section-title">Board of Directors</h2>
+        <div class="title-underline centered"></div>
+        <p class="mgmt-sub">Swipe left or right to meet the board — the founder sits at the center.</p>
+      </div>
+
+      <div class="mgmt-rail">
+        <button type="button" class="mgmt-nav mgmt-prev" aria-label="Scroll left">‹</button>
+        <div class="mgmt-viewport" id="mgmtViewport">
+          <ul class="mgmt-track">
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/leaders/akram-malouf.jpg" alt="Mr. Akram Malouf" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Akram Malouf</h3>
+                <span class="mgmt-role team-role">Director</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Akram Nazmi Malouf, a Lebanese national born in 1969, serves on the Board of Wadi Group, representing the interests of Freiji Company. A seasoned lawyer, he is the Senior Lawyer and Managing Partner of Nasri Maalouf &amp; Akram Maalouf Law Firm in Beirut, Lebanon, and has been a member of the Lebanese Bar Association since 1993. His academic path reflects both breadth and depth in law and business. He earned a French Master of Law from Lyon University in 1993, followed by an LLM in Criminal Law from the Lebanese University in 1995. He later expanded into business with an MBA in Marketing and Management from École Supérieure des Affaires in Beirut in 2002, and further specialized in enterprise and investment law with a degree from IDLO in Rome in 2004. Akram is also a member of Wadi Group’s Audit and Risk Sub-Committee.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/rima-freiji.jpg" alt="Mrs. Rima Freiji" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mrs. Rima Freiji</h3>
+                <span class="mgmt-role team-role">Director, Head of Governance Committee, Shareholder</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mrs. Rima Freiji, a Lebanese national born in 1969, joined Wadi in 2008 as Corporate Affairs Advisor before being appointed Chief Development Officer (CDO) in 2011. In her role, she leads initiatives that foster business growth and strengthen the company’s institutional framework. She earned a BA in Business Administration from Emory University in Atlanta in 1991, followed by a Master’s degree in International Economics and Management from SDA Bocconi University in Milan in 1994. Rima is a shareholder and Chairwoman of the Board of Tanmia, a Lebanese poultry processing company established in 1996 by Wadi’s Lebanese shareholders. Rima is also President of the Lebanese Private Sector Network. Since 2012, she has chaired Wadi Group’s Nomination and Corporate Governance Sub-Committee.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/ramzi-nasrallah.jpg" alt="Mr. Ramzi P. Nasrallah" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Ramzi P. Nasrallah</h3>
+                <span class="mgmt-role team-role">Vice-Chairman &amp; Managing Director, Shareholder</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Ramzi is responsible for the general administrative direction and control of the corporate financial functions of the company and oversees all audit activities and budget plans. He joined Wadi in 1984, at the time of establishment of their poultry companies, which are now consolidated under Wadi. He is currently the Managing Director of all the subsidiaries of the Wadi Group, a member of the Executive Committee, and the Board’s Vice Chairman. He graduated in 1980 with a Bachelor in Business Administration from the University of Prince Edward Island, Canada, followed by a Master in Business Administration, with a focus on finance, from the University of Houston (Texas) in 1982. Ramzi is also a shareholder and director in Tanmia, Lebanon, a poultry meat processing Company established in 1996 by the Lebanese shareholders of Wadi.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/tony-freiji.jpg" alt="Mr. Tony Freiji" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Tony Freiji</h3>
+                <span class="mgmt-role team-role">Executive Chairman, Shareholder</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Tony is the younger brother of Mr. Musa Freiji, and earned a Bachelor of Science degree in Agricultural Engineering from the American University of Beirut in 1981 and a Master of Science in Poultry Nutrition from Iowa State University in 1983. He has been with Wadi since 1984 and managed all ongoing production and commercial related activities as well as expansion projects. Tony is also a shareholder and director in Tanmia, Lebanon, a poultry meat processing Company established in 1996 by the Lebanese shareholders of Wadi.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card" data-founder="true">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/musa-freiji.jpg" alt="Mr. Musa Freiji" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Musa Freiji</h3>
+                <span class="mgmt-role team-role">Founding Shareholder &amp; Director</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Musa obtained a Bachelor of Science degree in Agricultural Engineering from the American University of Beirut in 1957. Mr. Musa is a life member of the World Poultry Science Association and co-founder of its branch in Lebanon. He has been a writer and lecturer of technical and poultry subjects since 1965. In the 1960s and 1970s, he played a major role in establishing export markets for Lebanese poultry production in the Arab World. His commercial experience in the poultry industry dates back to 1957 when he became the production manager at Greenleaf Poultry Company in Zahle, Lebanon until 1958. Thereafter, he established and managed thirteen poultry and poultry related operations in the Arab world of which seven are still operational. Mr. Musa has established projects in Lebanon, Syria, Jordan, Saudi Arabia, Egypt, and Sudan. Mr. Musa is the founder, shareholder and director in Tanmia, Lebanon, a poultry meat processing Company established in 1996 by the Lebanese shareholders of Wadi.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/leaders/masaaki-kawarai.jpg" alt="Mr. Masaaki Kawarai" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Masaaki Kawarai</h3>
+                <span class="mgmt-role team-role">Chief Strategy Officer, Director</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Masaaki Kawarai, a Japanese national born in 1968, is a Board Member and the Chief Strategy Officer of Wadi Poultry S.A.E. He represents Mitsui &amp; Co., Ltd., which he joined in 1993, as a secondee to Wadi Poultry S.A.E. Throughout his career, he has focused on various developments of food businesses through trading and investments in grain, oilseeds, and animal protein across Asia, Canada, the USA, Australia, Russia, the Middle East, and Africa. He holds a BA in Politics and Economics from Waseda University in Tokyo.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/leaders/hiroshi-furuya.jpg" alt="Mr. Hiroshi Furuya" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Hiroshi Furuya</h3>
+                <span class="mgmt-role team-role">Director</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Hiroshi Furuya, a Japanese national born in 1973, is a non-executive independent Board Member of Wadi Poultry S.A.E. He currently serves as General Manager of the Food &amp; Retail Business Department at Mitsui &amp; Co., Middle East Ltd., based in Dubai, U.A.E. Since joining Mitsui &amp; Co., Ltd. in 1997, he has built extensive experience in trading, investment, and management across the food and automotive sectors, including 10 years of international assignments in the United States and Thailand. He earned an undergraduate degree from Waseda University’s Faculty of Literature in 1997 and an MBA from IESE Business School in Spain in 2017.</p>
+              </div>
+            </li>
+            <li class="mgmt-card team-card">
+              <div class="mgmt-photo team-photo">
+                <img src="assets/images/leaders/shigeyuki-nishimura.jpg" alt="Mr. Shigeyuki Nishimura" loading="lazy">
+                <span class="team-photo-bar" aria-hidden="true"></span>
+              </div>
+              <div class="mgmt-body">
+                <h3>Mr. Shigeyuki Nishimura</h3>
+                <span class="mgmt-role team-role">Director</span>
+                <button type="button" class="team-more" aria-haspopup="dialog">See more</button>
+                <p class="team-bio" hidden>Mr. Shigeyuki Nishimura serves as an independent, non-executive Board Member of Wadi Poultry S.A.E. He is currently the General Manager of the Livestock Project Department II in the Food Business Unit at Mitsui &amp; Co., Ltd. He brings over 20 years of experience in building and strengthening a sustainable global food value chain, with extensive expertise in grain and feed material trading as well as investment activities in this sector.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="mgmt-nav mgmt-next" aria-label="Scroll right">›</button>
+      </div>
+    </div>
+    <div class="container team-cta">
+      <a href="leaders.html" class="btn btn-primary">View Full Leadership Team</a>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand anim-reveal">
+          <img src="assets/logo.svg" alt="Wadi Group" class="footer-logo">
+          <p class="footer-tagline">To Achieve. To Lead.</p>
+          <p class="footer-desc">Egypt's leading agribusiness company — poultry, feed, and food production with a focus on sustainability and quality.</p>
+        </div>
+        <div class="footer-links anim-reveal">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#sectors">Our Divisions</a></li>
+            <li><a href="leaders.html">Leadership</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact anim-reveal">
+          <h4>Contact</h4>
+          <address>
+            <p>Capital Business Park, Sheikh Zayed</p>
+            <p>Giza, Egypt</p>
+            <p><a href="mailto:info@wadigroup.com">info@wadigroup.com</a></p>
+            <p><a href="https://www.wadigroup.com" target="_blank" rel="noopener">www.wadigroup.com</a></p>
+          </address>
+        </div>
+        <div class="footer-sectors anim-reveal">
+          <h4>Our Sectors</h4>
+          <ul>
+            <li>Dawagen — Poultry</li>
+            <li>Mazareh — Agri-Business</li>
+            <li>Sina'at — Industrial</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Wadi Group. All rights reserved. <a class="foot-admin" href="admin/login.html">Admin</a></p>
+        <p class="footer-note">Proudly Grown in Egypt</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="leader-modal" id="leaderModal" hidden>
+    <div class="leader-modal-backdrop" data-close tabindex="-1" aria-hidden="true"></div>
+    <div class="leader-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="lmName">
+      <button type="button" class="leader-modal-close" data-close aria-label="Close">✕</button>
+      <div class="leader-modal-photo">
+        <img id="lmImg" src="" alt="">
+      </div>
+      <div class="leader-modal-copy">
+        <h3 id="lmName"></h3>
+        <p class="leader-modal-role" id="lmRole"></p>
+        <p class="leader-modal-bio" id="lmBio"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script src="js/leader-modal.js?v=6"></script>
+  <script src="js/main.js?v=29"></script>
+  <script src="js/contact-modal.js?v=1"></script>
+</body>
+</html>

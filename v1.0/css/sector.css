@@ -1,0 +1,413 @@
+/* ============================================
+   Wadi Group — Sector page styles
+   Builds on css/style.css (variables, scenes,
+   cursor, particles, scroll indicator, container)
+   ============================================ */
+
+.sector-page { background: var(--white); }
+
+/* ---- Per-sector accent theming (drives the logo swoosh + all accents) ---- */
+.sector-page {          /* default = Wadi green */
+  --accent: var(--green);
+  --accent-light: var(--green-light);
+  --accent-dark: var(--green-dark);
+  --accent-tint: rgba(0, 87, 155, 0.12);
+}
+.theme-poultry {        /* Dawagen — golden amber (logo swoosh) */
+  --accent: #c8890f;
+  --accent-light: #f2a81e;
+  --accent-dark: #9a680b;
+  --accent-tint: rgba(242, 168, 30, 0.14);
+}
+.theme-agri {           /* Mazareh — lime green (logo swoosh) */
+  --accent: #6aa22b;
+  --accent-light: #8cc63f;
+  --accent-dark: #4f7a1f;
+  --accent-tint: rgba(140, 198, 63, 0.16);
+}
+.theme-industrial {     /* Sina'at — burnt orange / rust (logo swoosh) */
+  --accent: #b0521f;
+  --accent-light: #d1662f;
+  --accent-dark: #853d15;
+  --accent-tint: rgba(193, 90, 40, 0.14);
+}
+
+/* Centre the reused custom cursor */
+.sector-page .cursor-dot { margin: -4px 0 0 -4px; background: var(--accent); box-shadow: 0 0 10px var(--accent-tint); }
+.sector-page .cursor-ring { margin: -20px 0 0 -20px; transition: width .3s, height .3s, margin .3s, background .3s; }
+.sector-page .cursor-ring.is-hover {
+  width: 64px; height: 64px; margin: -32px 0 0 -32px;
+  background: var(--accent-tint);
+}
+
+/* ---------------- Intro ---------------- */
+.sec-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1f26;
+}
+.sec-preloader-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  opacity: 0;
+}
+
+/* ---------------- Nav ---------------- */
+.sec-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+  color: var(--white);
+  transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+}
+.sec-nav.is-scrolled {
+  background: rgba(20, 25, 31, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+.sec-nav a { color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; transition: opacity var(--transition); }
+.sec-nav a:hover { opacity: 0.7; }
+
+/* Wadi logo with a sector-coloured middle swoosh */
+.sec-nav-logo { display: inline-flex; align-items: center; }
+.sec-nav-logo svg { width: 118px; height: auto; display: block; color: var(--white); }
+.sec-nav-logo .logo-swoosh { fill: var(--accent-light); transition: fill var(--transition); }
+
+.sec-nav-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--sand);
+  letter-spacing: 0.04em;
+}
+
+/* ---------------- Hero ---------------- */
+.sec-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: var(--white);
+}
+.sec-hero-scene { position: absolute; inset: 0; z-index: 0; }
+.sec-hero .hero-texture { z-index: 1; }
+.sec-hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 46%, rgba(15,20,25,0.34) 0%, rgba(15,20,25,0.1) 46%, rgba(15,20,25,0) 80%),
+    linear-gradient(180deg, rgba(20,28,24,0.35) 0%, rgba(15,20,25,0.55) 100%);
+}
+.sec-hero .hero-particles { z-index: 1; }
+
+.sec-hero-name {
+  position: absolute;
+  z-index: 1;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(6rem, 26vw, 24rem);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sec-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  width: 100%;
+  padding: 6rem 1.5rem 7rem;
+}
+/* Section logo (wordmark + coloured swoosh + WADIGROUP) */
+.sec-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.8rem;
+  opacity: 0;
+}
+.sec-logo-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding-left: 0.3em; /* balance the trailing letter-spacing */
+  line-height: 1;
+}
+.sec-logo-swoosh {
+  width: clamp(150px, 22vw, 200px);
+  height: auto;
+  display: block;
+  margin: 0.15rem 0;
+}
+.sec-logo-swoosh path { fill: var(--accent-light); }
+.sec-logo-parent {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  padding-left: 0.34em;
+}
+.sec-logo-parent b { font-weight: 700; color: rgba(255, 255, 255, 0.9); }
+
+.sec-kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 1.6rem;
+  opacity: 0;
+}
+.sec-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  line-height: 1.08;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.25);
+}
+.sec-line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.sec-char { display: inline-block; opacity: 0; transform-origin: center bottom; transform-style: preserve-3d; }
+.sec-title em { font-style: italic; color: var(--accent-light); }
+.sec-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.78);
+  margin: 1.5rem 0 1.6rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+}
+.sec-lead {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.72);
+  opacity: 0;
+}
+.sec-hero .scroll-indicator { opacity: 0; }
+
+/* ---------------- Stats ---------------- */
+.sec-stats { padding: clamp(3.5rem, 8vw, 6rem) 0; background: var(--off-white); }
+.sec-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+.sec-stat { display: flex; flex-direction: column; gap: 0.4rem; opacity: 0; position: relative; }
+.sec-stat:not(:last-child)::after {
+  content: ''; position: absolute; right: -0.75rem; top: 20%; bottom: 20%;
+  width: 1px; background: var(--gray-200);
+}
+.sec-stat-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--accent);
+  line-height: 1;
+}
+.sec-stat-label { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-600); }
+
+/* ---------------- Section head ---------------- */
+.sec-section-head { margin-bottom: 3rem; }
+.sec-section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  color: var(--text);
+  line-height: 1.15;
+}
+.sec-section-title span { color: var(--accent); font-style: italic; }
+.sec-section-title.centered { text-align: center; }
+.section-label.centered { display: block; text-align: center; }
+
+/* ---------------- Products ---------------- */
+.sec-products { padding: clamp(4rem, 9vw, 7rem) 0; }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  perspective: 1200px;
+}
+.product-grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 820px;
+  margin: 0 auto;
+}
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+.product-card.is-ready { transition: box-shadow var(--transition), border-color var(--transition); }
+.product-card.is-ready:hover { box-shadow: var(--shadow-lg); border-color: rgba(102,142,61,0.4); }
+
+.product-media {
+  position: relative;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.product-metric-chip {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.95rem 0.55rem;
+  background: rgba(20, 25, 31, 0.68);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top-right-radius: 14px;
+  opacity: 0;
+  z-index: 2;
+}
+.pm-v {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--accent-light);
+}
+.pm-l {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 3px;
+}
+
+/* Layered inner reveal */
+.pc-anim { opacity: 0; }
+.product-media--mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, var(--slate) 0%, var(--accent-dark) 100%);
+}
+.product-media--mark span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.product-body { padding: 1.6rem 1.5rem 1.8rem; }
+.product-kind {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.product-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+.product-desc { font-size: 0.92rem; line-height: 1.65; color: var(--gray-600); margin-bottom: 1.1rem; }
+.product-more { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+.product-more span { display: inline-block; transition: transform var(--transition); }
+.product-card:hover .product-more span { transform: translateX(5px); }
+
+/* ---------------- Cross-links ---------------- */
+.sec-cross { padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(5rem, 10vw, 8rem); background: var(--off-white); }
+.cross-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.cross-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 240px;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: var(--white);
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.cross-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,20,25,0.15) 0%, rgba(15,20,25,0.55) 100%);
+  z-index: 0;
+}
+.cross-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.cross-card > * { position: relative; z-index: 1; }
+.cross-index { font-family: var(--font-display); font-size: 0.9rem; color: var(--sand); margin-bottom: 0.4rem; }
+.cross-name { font-family: var(--font-display); font-weight: 600; font-size: 2rem; line-height: 1.1; }
+.cross-sub { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 0.3rem; }
+.cross-go {
+  position: absolute; top: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  transition: transform var(--transition), background var(--transition);
+}
+.cross-card:hover .cross-go { transform: translateX(4px); background: rgba(255,255,255,0.15); }
+
+/* ---------------- Footer tweak ---------------- */
+.footer-bottom--single {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.footer-home { color: var(--green-light); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.footer-home:hover { color: var(--white); }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 860px) {
+  .sec-stats-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .sec-stat:not(:last-child)::after { display: none; }
+  .product-grid { grid-template-columns: 1fr; gap: 1.5rem; max-width: 460px; margin: 0 auto; }
+  .cross-grid { grid-template-columns: 1fr; }
+  .sec-nav-title { display: none; }
+}

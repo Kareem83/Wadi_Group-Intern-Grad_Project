@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careers at Wadi Group — join Egypt's leading agribusiness across poultry, food and industry.">
+  <title>Careers | Wadi Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=51">
+</head>
+<body class="careers-page">
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.svg" alt="Wadi Group">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#sectors" class="nav-link">Our Divisions</a></li>
+        <li class="nav-item has-dropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Corporate <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="about.html">About Wadi Group</a></li>
+            <li><a href="leaders.html">Our Management Team</a></li>
+          </ul>
+        </li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li><a href="for-media.html" class="nav-link">Public Relations</a></li>
+        <li><a href="careers.html" class="nav-link active">Careers</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="careers-page-hero">
+    <div class="container careers-page-hero-content">
+      <span class="section-label light anim-reveal">Careers</span>
+      <h1 class="careers-page-title anim-reveal">Build the future of Egyptian agribusiness.</h1>
+      <p class="careers-page-lead anim-reveal">From the farm to the factory floor to the boardroom — Wadi Group's brands are always looking for people who care about doing agriculture right.</p>
+    </div>
+  </header>
+
+  <section class="careers-band" id="careers">
+    <div class="container">
+      <h2 class="anim-reveal">Ready to grow with us?</h2>
+      <p class="anim-reveal">Open roles across Dawagen, Mazareh and Sina'at are posted on our careers portal.</p>
+      <a href="https://wadigroup.taleo.net/careersection/wadi+external+cs/jobsearch.ftl" target="_blank" rel="noopener" class="btn-white anim-reveal">View open roles</a>
+      <div class="careers-why">
+        <div class="careers-why-card anim-reveal">
+          <div class="ico">1</div>
+          <h4>One integrated group</h4>
+          <p>Move across poultry, food, and logistics under one roof.</p>
+        </div>
+        <div class="careers-why-card anim-reveal">
+          <div class="ico">2</div>
+          <h4>40 years of know-how</h4>
+          <p>Learn from teams that built Egypt's agribusiness sector.</p>
+        </div>
+        <div class="careers-why-card anim-reveal">
+          <div class="ico">3</div>
+          <h4>Real impact</h4>
+          <p>Your work reaches Egyptian farms, factories, and dinner tables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Wadi Group. All rights reserved. <a class="foot-admin" href="admin/login.html">Admin</a></p>
+        <p class="footer-note">Proudly Grown in Egypt</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script src="js/pages-nav.js"></script>
+  <script src="js/contact-modal.js?v=1"></script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.anim-reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('revealed'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

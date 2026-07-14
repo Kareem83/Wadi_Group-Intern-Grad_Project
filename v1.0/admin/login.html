@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — Wadi Group</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-login-body">
+
+<div class="login-wrap">
+  <div class="login-card">
+    <img class="login-logo" src="../assets/logo.svg" alt="Wadi Group">
+    <h1>Admin Login</h1>
+    <p class="login-sub">Sign in to manage site content.</p>
+
+    <form id="loginForm" class="login-form" autocomplete="off">
+      <label class="field">
+        <span>Username</span>
+        <input type="text" id="username" name="username" placeholder="admin" required>
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <div class="pw-wrap">
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">Show</button>
+        </div>
+      </label>
+
+      <label class="check-field">
+        <input type="checkbox" id="remember">
+        <span>Keep me signed in</span>
+      </label>
+
+      <p class="login-error" id="loginError" hidden>Invalid username or password.</p>
+
+      <button type="submit" class="btn btn-primary login-btn">Sign in</button>
+    </form>
+
+    <p class="login-hint">Demo credentials — <b>admin</b> / <b>wadigroup</b></p>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+<script>
+  AdminAuth.guardLogin();
+
+  var form = document.getElementById('loginForm');
+  var err = document.getElementById('loginError');
+  var pwToggle = document.getElementById('pwToggle');
+  var pwInput = document.getElementById('password');
+
+  pwToggle.addEventListener('click', function () {
+    var show = pwInput.type === 'password';
+    pwInput.type = show ? 'text' : 'password';
+    pwToggle.textContent = show ? 'Hide' : 'Show';
+    pwToggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var user = document.getElementById('username').value.trim();
+    var pass = pwInput.value;
+    var remember = document.getElementById('remember').checked;
+
+    if (AdminAuth.login(user, pass, remember)) {
+      window.location.href = 'index.html';
+    } else {
+      err.hidden = false;
+    }
+  });
+</script>
+</body>
+</html>

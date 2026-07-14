@@ -1,0 +1,10 @@
+.claude/
+.DS_Store
+**/.DS_Store
+
+# Laravel backend — never commit dependencies, build output, or runtime state
+backend/vendor/
+backend/node_modules/
+backend/storage/
+backend/.env
+backend/public/build/

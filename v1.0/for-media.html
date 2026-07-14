@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wadi Group Public Relations — media resources, awards and certificates.">
+  <title>Public Relations | Wadi Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=51">
+</head>
+<body class="pr-page media-page">
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.svg" alt="Wadi Group">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#sectors" class="nav-link">Our Divisions</a></li>
+        <li class="nav-item has-dropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Corporate <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="about.html">About Wadi Group</a></li>
+            <li><a href="leaders.html">Our Management Team</a></li>
+          </ul>
+        </li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li><a href="for-media.html" class="nav-link active">Public Relations</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="media-page-hero">
+    <div class="container media-page-hero-content">
+      <span class="section-label light anim-reveal">Public Relations</span>
+      <h1 class="media-page-title anim-reveal">Media kits, awards <em>&amp; certificates.</em></h1>
+      <p class="media-page-lead anim-reveal">Access official media resources, awards, certificates, and downloadable corporate materials — all in one place.</p>
+      <div class="media-page-ctas anim-reveal">
+        <a href="#resources" class="btn btn-primary">Media resources</a>
+        <a href="#awards" class="btn-ghost-light">Awards &amp; certificates</a>
+      </div>
+      <div class="media-page-stats">
+        <div class="media-page-stat anim-reveal"><b>6</b><span>Media resources</span></div>
+        <div class="media-page-stat anim-reveal"><b>6</b><span>Awards</span></div>
+        <div class="media-page-stat anim-reveal"><b>23</b><span>Certificates</span></div>
+        <div class="media-page-stat anim-reveal"><b>1984</b><span>Established</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="pr-tabs" role="tablist" aria-label="Public Relations sections">
+    <a class="pr-tab active" href="#resources" data-target="resources" role="tab">Media Resources</a>
+    <a class="pr-tab" href="#awards" data-target="awards" role="tab">Awards &amp; Certificates</a>
+  </div>
+
+  <main>
+    <section class="media-section pr-anchor" id="resources">
+      <div class="container">
+        <div class="section-head anim-reveal">
+          <span class="section-label">Media Resources</span>
+          <h2>Downloadable corporate materials</h2>
+        </div>
+        <div class="asset-grid" id="assetGrid"></div>
+      </div>
+    </section>
+
+    <section class="media-section media-section--band pr-anchor" id="awards">
+      <div class="container">
+        <div class="section-head anim-reveal">
+          <span class="section-label">Awards &amp; Certificates</span>
+          <h2>Recognition &amp; quality</h2>
+        </div>
+        <p class="pr-intro anim-reveal">A collection of recognitions, quality certifications, and official documents reflecting our commitment to excellence.</p>
+
+        <div class="pr-subhead anim-reveal"><h3>Awards</h3><span class="pr-line"></span></div>
+        <div class="award-grid" id="awardGrid"></div>
+
+        <div class="pr-subhead anim-reveal" style="margin-top:2.75rem;"><h3>Certificates</h3><span class="pr-line"></span></div>
+        <div class="media-filters anim-reveal" id="certFilters" role="tablist" aria-label="Filter certificates" style="margin-bottom:1.1rem;">
+          <button class="media-filter active" data-filter="all" type="button">All</button>
+          <button class="media-filter" data-filter="iso" type="button">ISO</button>
+          <button class="media-filter" data-filter="ohsas" type="button">OHSAS</button>
+          <button class="media-filter" data-filter="globalgap" type="button">Global GAP</button>
+          <button class="media-filter" data-filter="foodsafety" type="button">Food Safety</button>
+          <button class="media-filter" data-filter="organic" type="button">Organic</button>
+        </div>
+        <div class="cert-panel anim-reveal" id="certPanel"></div>
+        <div class="cert-actions anim-reveal">
+          <p class="media-count"><b id="certCount">0</b> certificates</p>
+          <a class="btn btn-primary" href="https://www.wadigroup.com/sites/default/files/certificates.zip" target="_blank" rel="noopener">↓ Download all certificates (ZIP)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-section">
+      <div class="container">
+        <div class="pr-cta anim-reveal">
+          <div class="pr-cta-lead">
+            <div class="pr-cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            </div>
+            <div>
+              <span class="section-label">Complete package</span>
+              <h2>Download all public relations materials</h2>
+              <p>Get the complete collection of media resources, awards, certificates, and official corporate documents.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-on-cta" data-download="Full PR package">Download All Materials</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-section" style="padding-top:0;">
+      <div class="container">
+        <div class="pr-contact anim-reveal">
+          <div>
+            <h3>Media inquiries</h3>
+            <p>For interviews, asset requests, or additional information, our Public Relations team is here to help.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary" data-contact-open>Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="pr-toast" id="prToast" role="status" aria-live="polite"></div>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Wadi Group. All rights reserved. <a class="foot-admin" href="admin/login.html">Admin</a></p>
+        <p class="footer-note">Proudly Grown in Egypt</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script src="js/pages-nav.js"></script>
+  <script src="js/for-media.js?v=1"></script>
+  <script src="js/contact-modal.js?v=1"></script>
+</body>
+</html>
